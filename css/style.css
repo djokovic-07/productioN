@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #60a5fa;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+    width: 100%;
+  }
+  
+  .sidebar.menu-aberto {
+    display: block;
+  }
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Estilização da barra de rolagem adaptada para o tema verde */
+.table-responsive::-webkit-scrollbar {
+  height: 8px;
+}
+.table-responsive::-webkit-scrollbar-track {
+  background: #14532d; /* Tailwind green-900 */
+  border-radius: 4px;
+}
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #166534; /* Tailwind green-800 */
+  border-radius: 4px;
+}
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #15803d; /* Tailwind green-700 */
+}
