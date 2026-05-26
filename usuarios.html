@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuários</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-green-950 text-white">
+
+  <div class="md:hidden bg-green-900 p-4 flex justify-between items-center shadow-lg border-b border-green-800">
+    <h1 class="text-xl font-bold text-green-400">Produção</h1>
+    <button onclick="document.getElementById('menuLateral').classList.toggle('menu-aberto')" class="p-2 bg-green-800 rounded focus:outline-none hover:bg-green-700 transition">
+      ☰ Menu
+    </button>
+  </div>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    
+    <aside id="menuLateral" class="sidebar w-64 bg-green-900 p-5 md:block flex-shrink-0 border-r border-green-800">
+      <h1 class="text-2xl font-bold mb-10 hidden md:block text-green-400">Produção</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="index.html" class="p-2 rounded hover:bg-green-800 hover:text-green-100 transition text-green-200">Dashboard</a>
+        <a href="usuarios.html" class="bg-green-800 p-2 rounded text-green-100 font-semibold shadow">Usuários</a>
+        <a href="producao.html" class="p-2 rounded hover:bg-green-800 hover:text-green-100 transition text-green-200">Produção</a>
+      </nav>
+    </aside>
+
+    <main class="flex-1 p-4 md:p-6">
+      
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6 text-green-100">Gestão de Usuários</h2>
+        
+        <div class="bg-green-900 p-6 rounded-2xl mb-8 shadow-lg border border-green-800">
+          <h3 class="text-xl font-semibold mb-4 text-green-200">Cadastrar Funcionário</h3>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <input type="text" id="nomeUsuario" placeholder="Nome do Funcionário" class="flex-1 p-3 rounded bg-green-950 text-green-100 border border-green-700 focus:border-green-400 focus:ring-1 focus:ring-green-400 outline-none transition placeholder-green-600">
+            <button onclick="cadastrarUsuario()" class="bg-green-600 hover:bg-green-500 text-white font-bold px-6 py-3 rounded-lg shadow-lg hover:shadow-green-600/30 transition transform hover:-translate-y-0.5 whitespace-nowrap">
+              Salvar
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-green-900 p-6 rounded-2xl shadow-lg border border-green-800">
+          <h3 class="text-xl font-semibold mb-4 text-green-200">Lista de Funcionários</h3>
+          <div id="listaUsuarios" class="flex flex-col gap-2">
+            </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="js/supabase.js"></script>
+</body>
+</html>
