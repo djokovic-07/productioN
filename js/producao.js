@@ -25,7 +25,7 @@ async function salvarProducao(event) {
 
   const caixasHora = caixas / horas;
   const caixasMinuto = caixas / (horas * 60);
-  const pesoTotal = caixas * peso;
+  const pesoTotal = peso;
 
   const { error } = await client
     .from('producao')
