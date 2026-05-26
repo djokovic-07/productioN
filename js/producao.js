@@ -55,3 +55,30 @@ async function salvarProducao(event) {
 const form = document.getElementById('formProducao');
 
 form.addEventListener('submit', salvarProducao);
+
+async function carregarUsuariosSelect() {
+  const { data, error } = await client
+    .from('usuarios')
+    .select('*');
+
+  if (error) {
+    console.error("Erro ao buscar usuários:", error);
+    return;
+  }
+
+  const selectUsuario = document.getElementById('usuario');
+
+  // Reseta o campo mantendo a opção padrão
+  selectUsuario.innerHTML = '<option value="">Selecione o Funcionário</option>';
+
+  // Preenche o select com os nomes do banco de dados
+  if (data) {
+    data.forEach(usuario => {
+      // O value será o ID do usuário (importante para salvar a produção) e o texto será o Nome
+      selectUsuario.innerHTML += `<option value="${usuario.id}">${usuario.nome}</option>`;
+    });
+  }
+}
+
+// Executa a função automaticamente assim que a página de produção for aberta
+carregarUsuariosSelect();
