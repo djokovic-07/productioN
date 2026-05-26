@@ -12,7 +12,7 @@ async function carregarDashboard() {
     totalCaixas += item.quantidade_caixas;
 
     pesoTotal += (
-      item.quantidade_caixas * item.peso_caixa
+      item.peso_caixa
     );
   });
 
